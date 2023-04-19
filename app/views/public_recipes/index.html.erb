@@ -12,6 +12,13 @@
               <p class="card-title"><%= recipe.user.name %></p>
             <% end %>
           </div>
+          <p class="fw-bolder">Total Food Items: <%= recipe.recipe_foods %></p>
+          <% total_price = 0 %>
+          <% recipe.recipe_foods.each do |recipe_food| %>
+            <% price = recipe_food.quantity * recipe_food.food.price %>
+            <% total_price = total_price + price %>
+          <% end %>
+          <p class="fw-bolder">Total Price: $<%= total_price %></p>
         </div>
       </article>
     <% end %>
