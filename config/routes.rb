@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+<<<<<<< HEAD
   devise_for :users
   # Defines the root path route ("/")
   root to: 'foods#index'
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     end
   end
 =======
+=======
+>>>>>>> 0444bd7 (Add workflow)
   devise_for :users, sign_out_via: [:get, :post]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
  post 'authenticate', to: 'authentication#authenticate'
@@ -34,5 +36,4 @@ Rails.application.routes.draw do
   get '/public_recipes', to: 'public_recipes#index'
 
   root to: "foods#index"
->>>>>>> 86f49f2 (Add workflow)
 end
