@@ -13,12 +13,29 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   </head>
   <body>
+  <%= render "navbar/nav" %>
     <main>
       <section class="notice mt-3">
         <p class="notice text-success mt-1 fw-bolder"><%= notice %></p>
         <p class="alert text-danger fw-bolder"><%= alert %></p>
         <%= yield %>
+  
+      </div> 
         <section>
         </main>
+        <div class="d-flex justify-content-center">
+        <%= render "partials/footer" %>
+        </div>
+        <div class="menu-overlay" id="menu-overlay">
+            <a href="#" class="closeMenu" onclick="closeMobileMenu()"> 
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </a>
+            <ul class="menu-mobile">
+                <li class="menu-desktop transforma"><a href="#food">Food</a></li>
+                <li class="menu-desktop transforma"><a href="#recipes">My Recipes</a></li>
+                <li class="menu-desktop transforma"><a href="#public_recipes">Public Recipes</a></li>
+                <li class="menu-desktop transforma"><a href="#shopping_list">Shopping List</a></li>
+            </ul>
+        </div>
       </body>
     </html>
