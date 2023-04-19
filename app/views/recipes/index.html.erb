@@ -1,28 +1,14 @@
-<div class="is-flex is-justify-content-end my-6 container">
-  <%= link_to 'Create Recipe', new_recipe_path, class: "btn btn-dark cr-btn" %>
-</div>
-<div>
-  <ul>
-    <% if @recipes.size > 0%>
-    <% @recipes.each do |r| %>
-    <li class="border border-2 border-primary container mt-5 rounded bio">
-      <div class="d-flex p-3">
-        <div class="r-name">
-          <%= link_to recipe_path(r.id), id: "recipe_path#{r.id}" do %>
-          <h4 class="text-dark"><%= r.name%></h4>
-          <% end %>
-          <div>
-            <%= button_to "Remove", recipe_path(r.id), method: :delete, class: "btn btn-primary btn-floating mx-1 d-btn"%>
-          </div>
-        </div>
-        <div>
-          <p><%= r.description%></p>
-        </div>
-      </div>
-    </li>
-    <% end %>
-    <% else %>
-    <p class="border border-2 container mt-5 p-2 bio px-5 fs-1">There are no recipes registered!</p>
-    <% end %>
-  </ul>
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-center items-center mt-5 gap-80">
+    <h1 class="font-bold text-4xl">Recipes</h1>
+    <%= link_to 'New recipe', new_recipe_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <div id="recipes" class="min-w-full">
+    <%= render @recipes %>
+  </div>
 </div>

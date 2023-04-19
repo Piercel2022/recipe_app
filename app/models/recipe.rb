@@ -6,5 +6,8 @@ class Recipe < ApplicationRecord
   validates :description, presence: true
   validates :preparation_time, presence: true
   validates :cooking_time, presence: true
-  validates :public, presence: true
+
+  validates :public, inclusion: { in: [true, false] }
+
+
 end

@@ -1,27 +1,19 @@
-
-<section class="publicRecipe">
-  <h1 class="text-center my-4">Public Recipes</h1>
-  <% if @recipes.length === 0 %>
-    <p>There are no public recipes yet</p>
-  <% else %>
-    <% @recipes.each do |recipe| %>
-      <article class="card mb-4">
-        <div class="card-body">
-          <div class="card-header">
-            <% link_to recipe_path(id: recipe_path.id), class: "text-decoration-none" do %>
-              <p class="card-title fs-4"><%= recipe.name %></p>
-              <p class="card-title"><%= recipe.user.name %></p>
-            <% end %>
-          </div>
-          <p class="fw-bolder">Total Food Items: <%= recipe.recipe_foods %></p>
-          <% total_price = 0 %>
-          <% recipe.recipe_foods.each do |recipe_food| %>
-            <% price = recipe_food.quantity * recipe_food.food.price %>
-            <% total_price = total_price + price %>
-          <% end %>
-          <p class="fw-bolder">Total Price: $<%= total_price %></p>
-        </div>
-      </article>
-    <% end %>
+<h1 class="font-bold text-4xl text-center mt-5">Public Recipes</h1>
+<ul class="public_recipes_list">
+  <% @recipes.each do |recipe| %>
+    <li class="public_recipe">
+      <h3><%= link_to recipe.name,"/recipes/#{recipe.id}", class:'border-null' %></h3>
+      <h4>By: <%= recipe.user.name %></h4>
+      <span> Total food items: <%= recipe.recipe_foods.count  %> </span>
+      <span> Total price: 
+        <%=
+        total_price = 0;
+        recipe.recipe_foods.each do |item| 
+          total_price += item.quantity * item.food.price
+        end
+        total_price
+        %> 
+      </span>
+    </li>
   <% end %>
-</section>
+</ul>
