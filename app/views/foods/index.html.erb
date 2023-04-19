@@ -1,2 +1,32 @@
-<h1>Foods List</h1>
-<p class="d-flex justify-content-center border border-2 container mt-5 p-2 bio px-5 fs-1">There is no food yet!!</p>
+
+<div class="container">
+<h1 class="heading">Food List</h1>
+<%= link_to "Add Food", new_food_path, class: "btn btn-primary mb-3 mt-3" %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+       <th scope="col">Quantity</th>
+      <th scope="col">Measurement</th>
+      <th scope="col">Unit Price</th>
+        <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @foods.each do |food| %>
+    <tr>
+      <td><%= food.name %></td>
+       <td><%= food.quantity%></td>
+      <td><%= food.measurement_unit %></td>
+      <td>$<%= food.price %></td>
+      <td class="d-flex justify-content-space-around">
+         <%= link_to "edit", edit_food_path(food),class: "btn btn-success" %>
+         <%= button_to "delete", food_path(food), method: :delete, class: "btn btn-danger" %>
+      </td>
+    </tr>
+        <% end %>
+  </tbody>
+</table>
+  
+</div>
