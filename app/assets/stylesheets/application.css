@@ -101,3 +101,16 @@
 .transforma {
   transition: transform 0.2s ease-in-out;
 }
+
+.generalIndex {
+  width: 80vw;
+  font-size: 1.2rem;
+  background-color: #c0c0c0;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.food-table {
+  font-size: 38px;
+  font-weight: 700;
+}
