@@ -2,14 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'foods#index'
   resources :foods, only: [:index, :create, :new, :destroy]
-
   resources :recipes, only: [:index, :show, :create, :new, :destroy] do
     resources :recipe_foods, only: [:new, :destroy]
   end
-  
   resources :recipe_foods, only: [:index, :edit, :update, :destroy, :create, :new]
-
   resources :public_recipes, only: %i[index]
+  resources :general_shopping_list, only: [:index]
+
 
   devise_scope :user do 
     authenticated :user do 
@@ -20,5 +19,4 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'shopping_list', to: 'shopping_list#index'
 end
