@@ -1,4 +1,3 @@
-
 <section class="publicRecipe">
   <h1 class="text-center my-4">Public Recipes</h1>
   <% if @recipes.length === 0 %>
@@ -8,12 +7,12 @@
       <article class="card mb-4">
         <div class="card-body">
           <div class="card-header">
-            <% link_to recipe_path(id: recipe_path.id), class: "text-decoration-none" do %>
+            <%= link_to recipe_path(id: recipe.id), class: "text-decoration-none" do %>
               <p class="card-title fs-4"><%= recipe.name %></p>
               <p class="card-title"><%= recipe.user.name %></p>
             <% end %>
           </div>
-          <p class="fw-bolder">Total Food Items: <%= recipe.recipe_foods %></p>
+          <p class="fw-bolder">Total Food Items: <%= recipe.recipe_foods.length %></p>
           <% total_price = 0 %>
           <% recipe.recipe_foods.each do |recipe_food| %>
             <% price = recipe_food.quantity * recipe_food.food.price %>
