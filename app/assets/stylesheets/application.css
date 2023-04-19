@@ -17,7 +17,7 @@
 .form-box {
   padding: 2rem;
   border-radius: 5px;
-  background-color: silver;
+  background-color: #c0c0c0;
 }
 
 .notice {
@@ -36,6 +36,14 @@
 .form-link {
   text-align: center;
   font-weight: bolder;
+}
+
+.publicRecipe {
+  width: 60vw;
+  font-size: 1.2rem;
+  background-color: #c0c0c0;
+  border-radius: 10px;
+  padding: 1rem;
 }
 
 .navbar-item {
