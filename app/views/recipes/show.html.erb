@@ -40,18 +40,20 @@
           <th scope="col">Actions</th>
         </tr>
       </thead>
-      <% @foods.recipe_foods.each do |recipe_food| %>
-        <tbody>
-          <tr>
-            <th scope="row"><%= recipe_food.food.name%></th>
-            <td><%= recipe_food.quantity %></td>
-            <td>$<%= recipe_food.quantity * recipe_food.food.price %></td>
-            <td class="d-flex gap-3">
-              <%= link_to "edit", "/recipes/#{recipe_food.recipe.id}/recipe_foods/#{recipe_food.id}/edit", class: "btn btn-success" %>
-              <%= button_to "delete","#{recipe_recipe_foods_path(@recipe)}/#{recipe_food.id}", method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-            </td>
-          </tr>
-        </tbody>
+      <% @foods.each do |food| %>
+        <% food.recipe_foods.where(recipe_id: @recipe.id).each do |recipe_food| %>
+          <tbody>
+            <tr>
+              <th scope="row"><%= recipe_food.food.name%></th>
+              <td><%= recipe_food.quantity %></td>
+              <td>$<%= recipe_food.quantity * recipe_food.food.price %></td>
+              <td class="d-flex gap-3">
+                <%= link_to "edit", "/recipes/#{recipe_food.recipe.id}/recipe_foods/#{recipe_food.id}/edit", class: "btn btn-success" %>
+                <%= button_to "delete","#{recipe_recipe_foods_path(@recipe)}/#{recipe_food.id}", method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+              </td>
+            </tr>
+          </tbody>
+        <% end %>
       <% end %>
     </table>
   </div>
