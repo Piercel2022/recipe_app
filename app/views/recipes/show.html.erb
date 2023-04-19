@@ -1,3 +1,4 @@
+
 <div class="mx-auto md:w-2/3 w-full flex">
   <div class="mx-auto">
     <% if notice.present? %>
@@ -54,5 +55,61 @@
       <%= button_to 'Destroy this recipe', recipe_path(@recipe), method: :delete, class: "mb-5 mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
     <%= link_to 'Back to recipes', recipes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<div class="container">
+  <h2 class="text-center text-decoration-underline"><%=@recipe.name %></h2>
+  <div class="d-flex justify-content-between">
+    <p>
+      Preparation time: <%=
+    @recipe.preparation_time%><%="Hour".pluralize(@recipe.preparation_time)%>
+    </p>
+    <div class="d-flex gap-2 align-items-start">
+      <p>Public:</p>
+      <label class="switch mt-1">
+        <%=check_box_tag("public", value = "1", checked = @recipe.public,
+      disabled: true )%>
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+  <div>
+    <p>
+      Cooking time: <%=
+    @recipe.cooking_time%><%="Hour".pluralize(@recipe.cooking_time)%>
+    </p>
+  </div>
+  <h5 class="text-decoration-underline ps-3">Steps</h5>
+  <ol>
+    <% @recipe.description.split(/\n/) do |des| %>
+      <li><%= des %></li>
+    <% end %>
+  </ol>
+  <div class="d-flex justify-content-between">
+    <%= link_to "Generate shopping list",'/general_shopping_list' ,class: "btn btn-success"%>
+    <%= link_to "Add ingedrients", new_recipe_recipe_food_path(@recipe),class: "btn btn-success"%>
+  </div>
+  <div class="overflow-auto lg:overflow-visible flex justify-center mt-3">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Value</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <% @foods.recipe_foods.each do |recipe_food| %>
+        <tbody>
+          <tr>
+            <th scope="row"><%= recipe_food.food.name%></th>
+            <td><%= recipe_food.quantity %></td>
+            <td>$<%= recipe_food.quantity * recipe_food.food.price %></td>
+            <td class="d-flex gap-3">
+              <%= link_to "edit", "/recipes/#{recipe_food.recipe.id}/recipe_foods/#{recipe_food.id}/edit", class: "btn btn-success" %>
+              <%= button_to "delete","#{recipe_recipe_foods_path(@recipe)}/#{recipe_food.id}", method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
   </div>
 </div>
