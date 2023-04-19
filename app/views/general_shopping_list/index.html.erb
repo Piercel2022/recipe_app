@@ -1,0 +1,31 @@
+<section class='generalIndex'>
+  <h1 class="food-table mt-5">Shopping List</h1>
+  <% if @foods.length == 0 %>
+    <p class="text-center">There are no missing ingredients that must be purchased</p>
+  <% else %>
+    <div>
+      <p class="text-center">Amount of ingredients need to buy: <%= @missing_ingredients.length %></p>
+      <p class="text-center">Total value of foods needed: <%= @total_price %> $</p>
+    </div>
+    <div class="table-responsive">
+      <table class="table border-primary">
+        <thead>
+          <tr>
+            <th scope="col">Food</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @missing_ingredients.each do |ingredient| %>
+            <tr>
+              <td class="t-item"><%= ingredient[:name] %></td>
+              <td class="t-item"><%= ingredient[:quantity] %> <%=ingredient[:unit]%></td>
+              <td class="t-item">$ <%= ingredient[:price] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</section>
