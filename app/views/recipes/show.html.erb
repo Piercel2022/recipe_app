@@ -3,60 +3,53 @@
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
-  
-  <div id="<%= dom_id @recipe %>">
-  <p class="my-5 font-bold text-center text-2xl">
-    <%= @recipe.name  %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Preparation time:</strong>
-    <%= @recipe.preparation_time %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Cooking time:</strong>
-    <%= @recipe.cooking_time %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= @recipe.description %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Public:</strong>
-    <%= @recipe.public %>
-  </p>
-
-</div>
+    <div id="<%= dom_id @recipe %>">
+      <p class="my-5 font-bold text-center text-2xl">
+        <%= @recipe.name  %>
+      </p>
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Preparation time:</strong>
+        <%= @recipe.preparation_time %>
+      </p>
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Cooking time:</strong>
+        <%= @recipe.cooking_time %>
+      </p>
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Description:</strong>
+        <%= @recipe.description %>
+      </p>
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Public:</strong>
+        <%= @recipe.public %>
+      </p>
+    </div>
     <table class="border border-black">
-     <thead class=" bg-gray-50">
-      <tr>
-        <th class="border-r  px-6 py-4  border-black">Food</th>
-        <th class="border-r  px-6 py-4  border-black">Quantity</th>
-        <th class="border-r  px-6 py-4 border-black">Value</th>
-        <th class="border-r  px-6 py-4  border-black">Actions</th>
-      </tr>
-     </thead>
-     <tbody>
-      <% @recipe.recipe_foods.includes(:food).each do |recipe_food| %>
-        <tr >
-          <td class="border-r  px-6 py-4 border-black"><%= recipe_food.food.name%></td>
-          <td class="border-r  px-6 py-4 border-black"><%= "#{recipe_food.quantity}#{recipe_food.food.measuring_unit}"%></td>
-          <td class="border-r  px-6 py-4 border-black"><%= recipe_food.quantity * recipe_food.food.price %></td>
-          <td class="border-r  px-6 py-4 border-black">
-            <%= link_to 'modify', class:"text-sky-400" %>
-            <%= link_to 'remove', method: :delete %>
-          </td>
+      <thead class=" bg-gray-50">
+        <tr>
+          <th class="border-r  px-6 py-4  border-black">Food</th>
+          <th class="border-r  px-6 py-4  border-black">Quantity</th>
+          <th class="border-r  px-6 py-4 border-black">Value</th>
+          <th class="border-r  px-6 py-4  border-black">Actions</th>
         </tr>
-      <% end %>
-     </tbody>
+      </thead>
+      <tbody>
+        <% @recipe.recipe_foods.includes(:food).each do |recipe_food| %>
+          <tr >
+            <td class="border-r  px-6 py-4 border-black"><%= recipe_food.food.name%></td>
+            <td class="border-r  px-6 py-4 border-black"><%= "#{recipe_food.quantity}#{recipe_food.food.measuring_unit}"%></td>
+            <td class="border-r  px-6 py-4 border-black"><%= recipe_food.quantity * recipe_food.food.price %></td>
+            <td class="border-r  px-6 py-4 border-black">
+              <%= link_to 'modify', class:"text-sky-400" %>
+              <%= link_to 'remove', method: :delete %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
-
-    <%= link_to 'Generate shopping list', shopping_lists_path(recipe_id: @recipe.id), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Add Ingredient', new_recipe_food_path(recipe_id: @recipe.id), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this recipe', edit_recipe_path(@recipe), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Generate shopping list', general_shopping_list_index_path(recipe_id: @recipe.id), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(recipe_id: @recipe.id), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this recipe', edit_recipe_recipe_food_path(@recipe), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
       <%= button_to 'Destroy this recipe', recipe_path(@recipe), method: :delete, class: "mb-5 mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
