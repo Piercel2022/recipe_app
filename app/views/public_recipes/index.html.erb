@@ -1,0 +1,19 @@
+<section class="publicRecipe">
+  <h1 class="text-center my-4">Public Recipes</h1>
+  <% if @recipes.length === 0 %>
+    <p>There are no public recipes yet</p>
+  <% else %>
+    <% @recipes.each do |recipe| %>
+      <article class="card mb-4">
+        <div class="card-body">
+          <div class="card-header">
+            <% link_to recipe_path(id: recipe_path.id), class: "text-decoration-none" do %>
+              <p class="card-title fs-4"><%= recipe.name %></p>
+              <p class="card-title"><%= recipe.user.name %></p>
+            <% end %>
+          </div>
+        </div>
+      </article>
+    <% end %>
+  <% end %>
+</section>
