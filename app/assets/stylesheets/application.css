@@ -45,3 +45,59 @@
   border-radius: 10px;
   padding: 1rem;
 }
+
+.navbar-item {
+  text-decoration: none;
+}
+
+.btn-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  display: block;
+  color: white;
+}
+
+.btn-nav a {
+  color: white;
+}
+
+.nav-menu {
+  height: 60px;
+}
+
+.food {
+  width: 50%;
+  margin: auto;
+}
+
+.actions-btn {
+  padding: 0;
+  margin-left: 5px;
+}
+
+.nav-bar {
+  padding-top: 10px;
+}
+
+.nav-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 10;
+}
+
+.button_to {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-desktop {
+  display: none;
+}
+
+.transforma {
+  transition: transform 0.2s ease-in-out;
+}
