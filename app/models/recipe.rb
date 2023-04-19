@@ -8,6 +8,4 @@ class Recipe < ApplicationRecord
   validates :cooking_time, presence: true
 
   validates :public, inclusion: { in: [true, false] }
-
-
 end
