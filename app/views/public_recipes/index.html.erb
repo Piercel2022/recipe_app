@@ -1,26 +1,27 @@
-<section class="publicRecipe">
-  <h1 class="text-center my-4">Public Recipes</h1>
-  <% if @recipes.length === 0 %>
-    <p>There are no public recipes yet</p>
-  <% else %>
-    <% @recipes.each do |recipe| %>
-      <article class="card mb-4">
-        <div class="card-body">
-          <div class="card-header">
-            <%= link_to recipe_path(id: recipe.id), class: "text-decoration-none" do %>
-              <p class="card-title fs-4"><%= recipe.name %></p>
-              <p class="card-title"><%= recipe.user.name %></p>
+<ul class="public_recipes_list">
+  <section class="publicRecipe">
+    <h1 class="text-center my-4">Public Recipes</h1>
+    <% if @recipes.length === 0 %>
+      <p>There are no public recipes yet</p>
+    <% else %>
+      <% @recipes.each do |recipe| %>
+        <article class="card mb-4">
+          <div class="card-body">
+            <div class="card-header">
+              <%= link_to recipe_path(id: recipe.id), class: "text-decoration-none" do %>
+                <p class="card-title fs-4"><%= recipe.name %></p>
+                <p class="card-title"><%= recipe.user.name %></p>
+              <% end %>
+            </div>
+            <p class="fw-bolder">Total Food Items: <%= recipe.recipe_foods.length %></p>
+            <% total_price = 0 %>
+            <% recipe.recipe_foods.each do |recipe_food| %>
+              <% price = recipe_food.quantity * recipe_food.food.price %>
+              <% total_price = total_price + price %>
             <% end %>
+            <p class="fw-bolder">Total Price: $<%= total_price %></p>
           </div>
-          <p class="fw-bolder">Total Food Items: <%= recipe.recipe_foods.length %></p>
-          <% total_price = 0 %>
-          <% recipe.recipe_foods.each do |recipe_food| %>
-            <% price = recipe_food.quantity * recipe_food.food.price %>
-            <% total_price = total_price + price %>
-          <% end %>
-          <p class="fw-bolder">Total Price: $<%= total_price %></p>
-        </div>
-      </article>
+        </article>
+      <% end %>
     <% end %>
-  <% end %>
-</section>
+  </ul>

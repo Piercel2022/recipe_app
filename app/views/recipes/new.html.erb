@@ -1,4 +1,7 @@
-<h3 class="text-center" > Create Your Recipe</h3>
-<div class="recipe-form">
-  <%= render "recipe" %>
-</div> 
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="text-center my-4">New recipe</h1>
+
+  <%= render "form", recipe: @recipe %>
+
+  <%= link_to 'Back to recipes', recipes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+</div>
