@@ -13,3 +13,132 @@
  *= require_tree .
  *= require_self
  */
+
+.form-box {
+  padding: 2rem;
+  border-radius: 5px;
+  background-color: #c0c0c0;
+}
+
+.notice {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  font-size: 4.5rem;
+  color: #2980ef;
+  display: flex;
+  justify-content: center;
+}
+
+.form-link {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.publicRecipe {
+  width: 60vw;
+  font-size: 1.2rem;
+  background-color: #c0c0c0;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.recipes {
+  width: 60vw;
+  font-size: 1.2rem;
+  background-color: #c0c0c0;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.contents {
+  width: 60vw;
+  font-size: 1.2rem;
+  background-color: #c0c0c0;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.navbar-item {
+  text-decoration: none;
+}
+
+.btn-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  display: block;
+  color: white;
+}
+
+.btn-nav a {
+  color: white;
+}
+
+.nav-menu {
+  height: 60px;
+}
+
+.food {
+  width: 50%;
+  margin: auto;
+}
+
+.actions-btn {
+  padding: 0;
+  margin-left: 5px;
+}
+
+.nav-bar {
+  padding-top: 10px;
+}
+
+.nav-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 10;
+}
+
+.button_to {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-desktop {
+  display: none;
+}
+
+.transforma {
+  transition: transform 0.2s ease-in-out;
+}
+
+.generalIndex {
+  width: 80vw;
+  font-size: 1.2rem;
+  background-color: #c0c0c0;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.food-table {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.description {
+  border: 2px solid gray;
+}
+
+.recipe-name {
+  text-decoration: none;
+}
+
+.remove-button {
+  text-decoration: none;
+}

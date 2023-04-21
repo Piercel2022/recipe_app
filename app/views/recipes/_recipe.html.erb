@@ -1,0 +1,11 @@
+
+<div class="max-w-5xl flex justify-center items-center mt-5 gap-80 border-b mx-auto	pb-5 pl-20 shadow-lg">
+      <div>
+        <div class="font-semibold text-l"><%= link_to (recipe.name), recipe_path(recipe)%></div>
+        <div class="text-red-600 text-l"><%= button_to "REMOVE", recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" } %></div>
+      </div>
+      <div>
+        <p class="text-sm font-normal text-left break-words bg-light text-textColor"><%= recipe.description %></p>
+      </div>
+</div>
+

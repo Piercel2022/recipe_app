@@ -1,0 +1,15 @@
+<section class="recipes">
+  <h1 class="text-center my-4"> <%= link_to 'Add new recipe', new_recipe_path, class: "add-ingredient" %> </h1>
+  <% @recipes.each do |recipe| %>
+    <div class="d-flex text-center card mb-4">
+      <p class="d-flex justify-content-between">
+        <%= link_to "#{recipe.name.capitalize}", recipe_path(recipe), class:"recipe-name"  %>
+        <%= link_to 'Remove', recipe_path(recipe), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "remove-button"%>
+      </p>
+      <div class="description">
+        <p class="d-detail"> Description for recipe <h1> <%= recipe.name.capitalize %> </h1>
+        <p class="d-detail"> <%= recipe.description %> </p>
+      </div>
+    </div>
+  <% end %>
+</section>

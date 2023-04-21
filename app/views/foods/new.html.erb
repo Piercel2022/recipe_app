@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Add food</h1>
+  <div class="formm">
+  <%= form_for @food do |f| %>
+  <div class="mb-3">
+    <%= f.text_field :name, class: "edit" , placeholder: "food name" %>
+  </div>
+  <div class="mb-3">
+     <%= f.text_field :measurement_unit, class: "edit" , placeholder: "measurement" %>
+  </div>
+    <div class="mb-3">
+    <%= f.text_field :price, class: "edit" , placeholder: "price" %>
+  </div>
+    <div class="mb-3">
+     <%= f.text_field :quantity, class: "edit" , placeholder: "quantity" %>
+  </div>
+  
+  <p><%= f.submit "Add food", class: "btn btn-primary" %> <% end %></p>
+</div>
+</div>
