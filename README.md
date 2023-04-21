@@ -23,7 +23,6 @@
 # 📖 Receipe App <a name="about-project"></a>
 
 # 📖 Description <a name="Description-Note"></a>
-> Describe your project in 1 or 2 sentences.
 
 The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
 
