@@ -20,7 +20,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Receipe App <a name="about-project"></a>
+# 📖 Recipe App <a name="about-project"></a>
 
 # 📖 Description <a name="Description-Note"></a>
 
