@@ -1,4 +1,8 @@
 class FoodsController < ApplicationController
+
+  #load_and_authorize_resource
+  before_action :set_food, only: %i[show destroy]
+
   def index
     @foods = current_user.foods
   end
@@ -58,6 +62,10 @@ class FoodsController < ApplicationController
     @foods.each do |food|
       @total += (food.price * food.quantity)
     end
+  end
+
+  def set_food
+    @food = Food.find(params[:id])
   end
 
   def food_params

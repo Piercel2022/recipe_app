@@ -1,4 +1,6 @@
 class GeneralShoppingListController < ApplicationController
+
+  before_action :authenticate_user!
   def index
     @foods = Food.includes(:recipe_foods).where(user_id: current_user.id)
     @missing_ingredients = []
